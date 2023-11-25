@@ -7,11 +7,13 @@ metadata:
     serving.kserve.io/enable-prometheus-scraping: "true"
 spec:
   predictor:
+    canaryTrafficPercent: 30
     serviceAccountName: s3-read-only
     model:
       modelFormat:
         name: pytorch
-      storageUri: s3://tsai-emlo/kserve-mm-session-bck/imagenet-vit/
+      # storageUri: s3://tsai-emlo/kserve-mm-session-bck/imagenet-vit/
+      storageUri: s3://tsai-emlo/kserve-mm-session/cat-classifier/
       resources:
         limits:
           cpu: 2600m
